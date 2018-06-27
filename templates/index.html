@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}学院院系列表 - 慕学在线网{% endblock %}
+<link rel="stylesheet"  href="{% static 'bootstrap/bootstrap.min.css' %}">
+<script src="{% static 'bootstrap/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'bootstrap/bootstrap.min.js' %}"></script>
+{% block custom_bread %}
+{% endblock %}
+
+{% block custom_js %}
+<script src="{% static 'js/index.js' %}"></script>
+{% endblock %}
+
+{% block custom_content %}
+<div class="banner ">
+  <div class="wp">
+    <div id="myCarousel" class="fl slide carousel">
+      <div class="form-group imgslide carousel-inner">
+        <div class="imgs item active">
+          <li><a href=""><img width="100%" height="478" src="{% static 'images/lun1.jpg' %}"/></a></li>
+        </div>
+        <div class="imgs item">
+          <li><a href=""><img width="100%" height="478" src="{{ MEDIA_URL }}{{ banner.image }}"/></a></li>
+        </div>
+        <div class="imgs item">
+          <li><a href=""><img width="100%" height="478" src="{{ MEDIA_URL }}{{ banner.image }}"/></a></li>
+        </div>
+      </div>
+      <div class="unslider-arrow prev caro usel-control left "href="#myCarousel" data-slide="prev" ></div>
+      <div class="unslider-arrow next  right"href="#myCarousel" data-slide="next"></div>
+    </div>
+  </div>
+</div>
+<!--banner -->
+<section>
+  <div class="wp">
+    <ul class="feature row"style="text-align: center;">
+      <li class="feature1 col-sm-3">
+        <img class="pic" src="{% static 'images/xiao1.png' %}" width="45px"/>
+        <p class="center">专业权威</p>
+      </li>
+      <li class="feature2 col-sm-3">
+        <img class="pic" src="{% static 'images/xiao2.png' %}" width="45px"/>
+        <!--{% static 'images/feature2.png' %}-->
+        <p class="center">课程最新</p>
+      </li>
+      <li class="feature3 col-sm-3">
+        <img class="pic" src="{% static 'images/xiao3.png' %}" width="45px" height="45px"/>
+        <p class="center">名师授课</p>
+      </li>
+      <li class="feature4 col-sm-3">
+        <img class="pic" src="{% static 'images/xiao4.png' %}" width="45px"/>
+        <p class="center">数据真实</p>
+      </li>
+    </ul>
+  </div>
+</section>
+<!--feature end-->
+<!--module1 start-->
+<section>
+  <div class="module">
+    <div class="wp">
+      <h1>公开课程</h1>
+      <div class="module1 eachmod">
+        <div class="module1_1 left1">
+          <img width="100%" height="614" src="{% static 'images/module1_1.jpg' %}" style="position: relative;"/>
+          <!--{% static 'images/module1_1.jpg' %}-->
+          <!--<p class="fisrt_word">名师授课<br/>专业权威</p>-->
+          <img src="{% static 'images/ee.png' %}" width="100px" style="top: 10%;position: absolute;left: 31%;">
+          <a class="more" href="{% url 'courses:course_list' %}">查看更多课程 ></a>
+        </div>
+        <div class="right1 group_list" style="width: 82%;">
+          <div id="myCarouse2" class="module1_2 box">
+            <div class="form-group imgslide carousel-inner" style="height: 100%;">
+              <div class="imgs item active">
+                <li style="width: 100%;"><a href=""><img width="100%" height="478" src="{% static 'images/lun11.jpg' %}"/></a></li>
+              </div>
+              <!--{{ MEDIA_URL }}{{ banner.image }}-->
+              <div class="imgs item">
+                <li style="width: 100%;"><a href=""><img width="100%" height="478" src="{{ MEDIA_URL }}{{ banner.image }}"/></a></li>
+              </div>
+              <div class="imgs item">
+                <li style="width: 100%;"><a href=""><img width="100%" height="478" src="{{ MEDIA_URL }}{{ banner.image }}"/></a></li>
+              </div>
+            </div>
+            <!--<div class="imgslide2">-->
+              <!--<ul class="imgs">-->
+                <!--{% for banner_course in banner_courses %}-->
+                <!--<li>-->
+                  <!--<a href="{% url 'courses:course_detail' banner_course.id %}">-->
+                    <!--<img width="470" height="300" src="{{ MEDIA_URL }}{{ banner_course.image }}"/>-->
+                  <!--</a>-->
+                <!--</li>-->
+                <!--{% endfor %}-->
+
+              <!--</ul>-->
+            <!--</div>-->
+            <div class="unslider-arrow prev caro usel-control left "href="#myCarousel" data-slide="prev" ></div>
+            <div class="unslider-arrow next  right"href="#myCarousel" data-slide="next"></div>
+          </div>
+          {% for course in courses %}
+          <div class="module1_{{ forloop.counter|add:2 }} box">
+            <a href="{% url 'courses:course_detail' course.id %}">
+              <img width="233" height="190" src="{{ MEDIA_URL }}{{ course.image }}"/>
+            </a>
+            <div class="des">
+              <a href="{% url 'courses:course_detail' course.id %}">
+                <h2 title="django入门">{{ course.name }}</h2>
+              </a>
+              <span class="fl">难度：<i class="key">{{ course.degree }}</i></span>
+              <span class="fr">学习人数：{{ course.students }}</span>
+            </div>
+            <div class="bottom">
+              <span class="fl" title="慕课网">{{ course.course_org.name }}</span>
+              <span class="star fr">{{ course.fav_nums }}</span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="module greybg">
+    <div class="wp">
+      <h1>学院院系</h1>
+      <div class="module3 eachmod">
+        <div class="module1_1 left1">
+          <img width="100%" height="463" src="{% static 'images/module3_1.jpg' %}" style="position: relative;"/>
+          <!--{% static 'images/module3_1.jpg' %}-->
+          <img src="{% static 'images/hh.png' %}" width="100px" style="top: 10%;position: absolute;left: 31%;">
+          <!--<p class="fisrt_word">名校来袭<br/>权威认证</p>-->
+          <a class="more" href="{% url 'org:org_list' %}">查看更多学院 ></a>
+        </div>
+        <div class="right">
+          <ul>
+            {% for org in course_orgs %}
+            <li class="{% if forloop.counter|divisibleby:5 %}five{% endif %}">
+              <a href="{% url 'org:org_home' org.id %}">
+                <div class="company">
+                  <img width="184" height="100" src="{{ MEDIA_URL }}{{ org.image }}"/>
+                  <div class="score">
+                    <div class="circle">
+                      <h2>{{ org.tag }}</h2>
+                    </div>
+                  </div>
+                </div>
+                <p><span class="key" title="{{ org.name }}">{{ org.name }}</span></p>
+              </a>
+            </li>
+            {% endfor %}
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

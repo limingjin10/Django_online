@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>try</title>
+</head>
+<style>
+    nav{
+        background-color: #f8f8f8;
+        border-color: #e7e7e7;
+        position: relative;
+        min-height: 50px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #333;
+    }
+    h3{
+        float: left;
+        margin-left: 20px;
+        margin-top: 10px;
+    }
+    #ul1{
+        float: left;
+        margin-bottom: 0;
+        list-style: none;
+    }
+    #ul1 > li {
+        float: left;
+        padding: 15px;
+    }
+    #ul2{
+        float: right;
+        margin-bottom: 0;
+        list-style: none;
+    }
+    #ul2 > li {
+        float: left;
+        padding: 15px;
+    }
+    button{
+        float: right;
+        list-style: none;
+        width: 40px;
+        height: 35px;
+        margin-top: 5px;
+        border-radius: 5px;
+    }
+    button > span{
+        display: table;
+        line-height: 0px;
+        width: 20px;
+    }
+.clean{
+    clear: both;
+}
+#ul3{
+    float: right;
+    list-style: none;
+}
+    @media all and (min-width:767px){
+        #ul1{
+            display:block;
+        }
+        #ul2{
+            display:block;
+        }
+        #button{
+            display:none;
+        }
+        #ul3{
+            display:none;
+        }
+    }
+    @media all and (max-width:767px){
+        #ul1{
+            display:none;
+        }
+        #ul2{
+            display:none;
+        }
+        #button{
+            display:block;
+        }
+        #ul3{
+            display:none;
+        }
+    }
+</style>
+<nav>
+    <h3><a>Project name</a></h3>
+    <ul id="ul1">
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+    <ul id="ul2">
+        <li>Default</li>
+        <li>Static Top</li>
+        <li>Fixed Top</li>
+    </ul>
+    <button id="button">
+        <span>-</span>
+        <span>-</span>
+        <span>-</span>
+    </button>
+    <div class="clean"></div>
+    <ul id="ul3">
+        <li>Default</li>
+        <li>Static Top</li>
+        <li>Fixed Top</li>
+    </ul>
+</nav>
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+
+
+
+
+//var mql = window.matchMedia('(min-width: 767px)');
+//screenTest(mql);
+//
+//var ul3 = document.getElementById('ul3');
+//function screenTest(e) {
+//    if (e.matches) {
+//        document.getElementById('ul1').style.display='block';
+//        document.getElementsByTagName('button')[0].style.display='none';
+//        document.getElementById('ul2').style.display='block';
+//        document.getElementById('ul3').style.display='none';
+//    } else {
+//        document.getElementById('ul1').style.display='none';
+//        document.getElementsByTagName('button')[0].style.display='block';
+//        document.getElementById('ul2').style.display='none';
+//    }
+//}
+//
+//mql.addListener(screenTest);
+//
+    var button = document.getElementById('button');
+    button.addEventListener('click',()=>{
+       if( ul3.style.display=='block'){
+           ul3.style.display='none';
+       }else{
+           ul3.style.display='block';
+       }
+    })
+</script>
+</html>
